@@ -1,0 +1,18 @@
+<button ng-click="new()">New Friend</button>
+
+<!-- <a href="#/new"><button>New Friend</button></a> -->
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Show</th>
+		<th>Update</th>
+		<th>Delete</th>
+	</tr>
+	<tr ng-repeat="i in users track by $index">
+		<td>{{ i.first_name }} {{ i.last_name }}</td>
+		<td ng-click="show(i._id)"><button>show</button></td>
+		<td ng-click="edit(i._id)"><button>edit</button></td>
+		<td ng-click="delete(i._id)"><button>delete</button></td>
+	</tr>
+</table>
