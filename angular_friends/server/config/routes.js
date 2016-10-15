@@ -11,6 +11,6 @@ module.exports = function(app){
 		console.log(req.body);
 		friends.create(req, res);
 	});
-	app.put('/friends:id', friends.update);
+	app.put('/friends/:id', friends.update);
 	app.delete('/friends/:id', friends.delete);
 }

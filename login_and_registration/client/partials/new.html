@@ -1,0 +1,18 @@
+<h2>Resgister</h2>
+<form>
+	<div>First Name<input type="text" ng-model="user.first_name">{{users.errors.first_name.message}}</div>
+	<div>Last Name<input type="text" ng-model="user.last_name">{{users.errors.last_name.message}}</div>
+	<div>Birthday<input type="text" ng-model="user.birthday">{{users.errors.birthday.message}}</div>
+	<div>Phone<input type="text" ng-model="user.phone" placeholder="234-567-8901">{{users.errors.phone.message}}</div>
+	<div>Gender<input type="text" ng-model="user.gender" placeholder="MALE / FEMALE">{{users.errors.gender.message}}</div>
+	<div>Email<input type="text" ng-model="user.email">{{users.errors.email.message}}</div>
+	<div>Password<input type="password" ng-model="user.password">{{users.errors.password.message}}</div>
+	<div>Confirm PW<input type="password" ng-model="user.password_confirmation"></div>
+	<button ng-click="create()">Create</button>
+</form>
+<h2>Login</h2>
+<form>
+	<div>Email: <input type="text" ng-model="user.email_login">{{users.errors.user_login}}</div>
+	<div>Password: <input type="text" ng-model="user.password_login"></div>
+	<button ng-click="login()">Login</button>
+</form>

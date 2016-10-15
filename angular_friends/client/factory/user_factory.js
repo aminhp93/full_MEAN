@@ -38,11 +38,12 @@ app.factory('userFactory', function($http){
 	factory.delete = function(_id, callback){
 		$http.delete('/friends/' + _id).then(function(result){
 			console.log(result);
+				$http.get('/friends').then(function(result){
+				users = result.data;
+				callback(users);
+			})
 		})
-		$http.get('/friends').then(function(result){
-			users = result.data;
-			callback(users);
-		})
+		
 	}
 	return factory;
 })
