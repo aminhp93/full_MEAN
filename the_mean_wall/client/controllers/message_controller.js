@@ -13,13 +13,13 @@ app.controller('messageController', function($scope, messageFactory, $cookies, $
     }
 
     $scope.addMessage = function() {
+        $scope.message['name'] = $scope.nameVal;
         messageFactory.create($scope.message, index);
-        console.log($scope.message);
-        console.log($scope.nameVal);
         $scope.message = {};
     }
 
     $scope.addComment = function(_id) {
+        $scope.comment['name'] = $scope.nameVal;
         messageFactory.createComment(_id, $scope.comment[_id], index);
         $scope.comment = {};
     }

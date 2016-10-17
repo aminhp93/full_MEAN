@@ -22,6 +22,17 @@ module.exports = {
                         message.save(function(err, result) {
                             if (err) {
                                 console.log(err);
+                            } else {
+                                // return all the messages
+                                Message.find({})
+                                    .populate('_comment')
+                                    .exec(function(err, result) {
+                                        if (err) {
+                                            console.log(err);
+                                        } else {
+                                            response.json(result);
+                                        }
+                                    })
                             }
                         })
                     }
