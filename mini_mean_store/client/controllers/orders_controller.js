@@ -16,6 +16,8 @@ app.controller('ordersController', function($scope, ordersFactory) {
     ordersFactory.getOrder(getOrder);
 
     $scope.addOrder = function() {
+        console.log('Minh');
+        console.log($scope.order);
         ordersFactory.create($scope.order, getOrder);
         $scope.order = {}
     }

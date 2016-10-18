@@ -30,10 +30,6 @@ app.factory('ordersFactory', function($http) {
             orders = result.data;
             callback(orders);
         })
-        $http.get('/orders').then(function(result) {
-            orders = result.data;
-            callback(orders);
-        });
     }
     return factory;
 

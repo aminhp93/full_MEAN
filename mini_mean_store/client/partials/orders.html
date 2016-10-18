@@ -1,23 +1,16 @@
-<ul class='nav'>
-    <li><a href="#/">Dashboard</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#orders">Orders</a></li>
-    <li><a href="#customers">Customers</a></li>
-    <li><a href="#settings">Settings</a></li>
-</ul>
 <form>
     <li>Customer:
-        <select ng-model="order.customer" ng-init="order = customers[0]">
-            <option ng-repeat="i in customers">{{i.name}}</option>
+        <select ng-options="i.name as i.name for i in customers" ng-model="order.customer" ng-init="order = customers[0]">
+            <!-- <option ng-repeat="i in customers">{{i.name}}</option> -->
+            <option value="" disabled="">Choose Customer</option>
         </select>
     </li>
     <li>Order:
-        <select ng-model="order.quantity">
-            <option ng-repeat="j in products">{{j.quantity}}</option>
+        <select ng-options="j.name as j.name for j in products" ng-model="order.product">
+            <!-- <option ng-repeat="j in products">{{j.quantity}}</option> -->
+            <option value="" disabled="">Choose Order</option>
         </select>
-        <select ng-model="order.product">
-            <option ng-repeat="j in products">{{j.name}}</option>
-        </select>
+        <input type="text" ng-model="order.quantity" placeholder="Choose Quantity">
     </li>
     <input type="submit" ng-click="addOrder()">
 </form>
@@ -25,13 +18,13 @@
     <tr>
         <th>Customer Name</th>
         <th>Product</th>
-        <th>Quality</th>
+        <th>Quantity</th>
         <th>Date</th>
     </tr>
     <tr ng-repeat="k in orders">
         <td>{{ k.customer }}</td>
         <td>{{ k.product }}</td>
-        <td>{{ k.quality }}</td>
+        <td>{{ k.quantity }}</td>
         <td>{{ k.createdAt | date: YY-mm-dd}}</td>
     </tr>
 </table>
