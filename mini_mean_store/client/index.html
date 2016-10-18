@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 
 <head>
     <meta charset="UTF-8">
-    <title>Index page</title>
+    <title>Mini Mean Store</title>
+    <style>
+    .nav li {
+        display: inline-block;
+    }
+    
+    #new_product {
+        width: 150px;
+        display: inline-block;
+    }
+    
+    #products {
+        display: inline-block;
+        vertical-align: top;
+        width: 600px;
+    }
+    
+    #products div {
+        display: inline-block;
+    }
+    </style>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="assets/app.js"></script>
+    <script src="factory/products_factory.js"></script>
+    <script src="factory/customers_factory.js"></script>
+    <script src="factory/orders_factory.js"></script>
+    <script src="controllers/index_controller.js"></script>
+    <script src="controllers/products_controller.js"></script>
+    <script src="controllers/orders_controller.js"></script>
+    <script src="controllers/customers_controller.js"></script>
+    <script src="controllers/settings_controller.js"></script>
 </head>
 
 <body>
+    <div ng-view></div>
 </body>
 
 </html>

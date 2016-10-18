@@ -1,0 +1,26 @@
+<ul class='nav'>
+    <li><a href="#/">Dashboard</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#orders">Orders</a></li>
+    <li><a href="#customers">Customers</a></li>
+    <li><a href="#settings">Settings</a></li>
+</ul>
+<form action="">
+    <h4>Add a new customer</h4>
+    <input type="text" ng-model="customer.name">
+    <input type="submit" ng-click="addCustomer()">
+</form>
+<table>
+    <tr>
+        <th>Customer Name</th>
+        <th>Created Date</th>
+        <th>Actions</th>
+    </tr>
+    <tr ng-repeat="i in customers">
+        <td>{{i.name}}</td>
+        <td>{{i.createdAt | date:'yyyy-MM-dd'}}</td>
+        <td>
+            <button ng-click='removeCustomer(i._id)'>Remove</button>
+        </td>
+    </tr>
+</table>

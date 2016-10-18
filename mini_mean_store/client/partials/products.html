@@ -1,0 +1,38 @@
+<ul class='nav'>
+    <li><a href="#/">Dashboard</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#orders">Orders</a></li>
+    <li><a href="#customers">Customers</a></li>
+    <li><a href="#settings">Settings</a></li>
+</ul>
+<div id="new_product">
+    <form>
+        <input type="text">
+        <input type="submit" value="Filter">
+    </form>
+    <form>
+        <h4>Add a new product</h4>
+        <li>Name:
+            <input type="text" ng-model="product.name">
+        </li>
+        <li>Images(url):
+            <input type="text" ng-model="product.image_url">
+        </li>
+        <li>Description:
+            <input type="text" ng-model="product.description">
+        </li>
+        <li>Initial Quantity:
+            <input type="text" ng-model="product.quantity">
+        </li>
+        <input type="submit" ng-click="addProduct()" value="Create">
+    </form>
+</div>
+<div id="products">
+    <div ng-repeat="i in products">
+        <div>
+            <img src="https://www.nccw.org/App_Themes/Aspen/images/icon_product.png" alt="">
+            <li>{{i.name}}</li>
+            <li>({{i.quantity}} left)</li>
+        </div>
+    </div>
+</div>
