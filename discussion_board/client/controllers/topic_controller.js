@@ -6,6 +6,7 @@ app.controller('topicController', function($scope, topicFactory, $location, user
     topicFactory.getTopic(getTopic);
 
     $scope.createTopic = function() {
+        console.log($scope);
         $scope.topic['_user'] = $cookies.get('user_id');
         topicFactory.createTopic($scope.topic, getTopic);
         $scope.topic = {};

@@ -9,11 +9,11 @@
 </form>
 <div>
     <div ng-repeat="i in messages" class="message">
-        <div>{{i.name}} say: {{i.message}}
+        <div>{{i._user.name}} say: {{i.message}}
             <button ng-click='like()'>{{i.like}} Like</button>
             <button ng-click='dislike()'>{{i.dislike}} Dislike</button>
             <div ng-repeat="j in i._comment" class="comment">
-                <div>{{ j.name }} say: {{j.comment}}</div>
+                <div>{{ j._user.name }} say: {{j.comment}}</div>
             </div>
             <form>
                 <input type="text" ng-model="comment[i._id].comment">

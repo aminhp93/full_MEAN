@@ -1,5 +1,8 @@
-<form>
+<form name="myForm">
     Enter your name:
-    <input type="text" ng-model="user.name" placeholder="Enter your name here">
-    <input type="submit" ng-click="createUser()">
+    <input type="text" ng-model="user.name" placeholder="Enter your name here" required ng-minlength="5" ng-pattern="regex">
+    <input type="submit" ng-click="createUser()" ng-disabled="myForm.$invalid">
+    <span ng-show="myForm.$dirty && myForm.$error.required">Name is required</span>
+    <span ng-show="myForm.$dirty && myForm.$error.minlength">Name must have at least 5 charactors</span>
+    <span ng-show="myForm.$dirty && myForm.$error.pattern">Guess</span>
 </form>

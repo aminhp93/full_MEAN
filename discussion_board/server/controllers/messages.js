@@ -1,12 +1,18 @@
 var mongoose = require('mongoose');
 var Message = mongoose.model('Message');
 var Topic = mongoose.model('Topic');
-var User = mongoose.model('Topic');
+var User = mongoose.model('User');
 
 module.exports = {
     index: function(request, response) {
         Message.find({ _topic: request.params.topic_id })
-            .populate('_comment')
+            .populate({
+                path: '_comment',
+                populate: {
+                    path: '_user'
+                }
+            })
+            .populate('_user')
             .exec(function(err, result) {
                 if (err) {
                     console.log(err);

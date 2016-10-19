@@ -12,6 +12,7 @@ module.exports = function(app) {
 
     app.get('/messages/:topic_id', messages.index);
     app.post('/messages/:topic_id', messages.create);
+
     app.post('/comments/:message_id', comments.create);
 
     app.post('/messages/like/:topic_id', messages.like);

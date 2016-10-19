@@ -8,5 +8,6 @@ app.factory('userFactory', function($http) {
             callback(users);
         })
     }
+
     return factory;
 })
