@@ -3,7 +3,7 @@ app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'partials/index.html',
-            controller: 'topicController'
+            controller: 'userController'
         })
         .when('/dashboard', {
             templateUrl: 'partials/topic.html',
@@ -11,6 +11,10 @@ app.config(function($routeProvider) {
         })
         .when('/topics/:id', {
             templateUrl: 'partials/messages.html',
+            controller: 'messageController'
+        })
+        .when('/users/:id', {
+            templateUrl: 'partials/user.html',
             controller: 'messageController'
         })
         .otherwise({

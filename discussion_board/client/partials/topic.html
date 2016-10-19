@@ -1,3 +1,4 @@
+<button><a href="#/">Logout</a></button>
 <form>
     <h4>Add a new topic</h4>
     <li>
@@ -18,7 +19,7 @@
             <option>Web Development</option>
         </select>
     </li>
-    <input type="submit" ng-click="addTopic()">
+    <input type="submit" ng-click="createTopic()">
 </form>
 <table>
     <tr>
@@ -30,7 +31,7 @@
     <tr ng-repeat="i in topics">
         <td>{{ i.category }}</td>
         <td><a href="#/topics/{{i._id}}">{{ i.title }}</a></td>
-        <td>{{ i.name }}</td>
+        <td><a href="#/users/{{i._id}}">{{ i.name }}</a></td>
         <td>{{ i._id }}</td>
     </tr>
 </table>

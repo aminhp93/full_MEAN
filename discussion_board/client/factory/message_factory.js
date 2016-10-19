@@ -3,7 +3,7 @@ app.factory('messageFactory', function($http) {
     var messages = [];
     var topics = [];
 
-    factory.index = function(topic_id, callback) {
+    factory.getMessage = function(topic_id, callback) {
         $http.get('/messages/' + topic_id).then(function(result) {
             messages = result.data;
             callback(messages);
@@ -14,11 +14,10 @@ app.factory('messageFactory', function($http) {
         $http.get('/topics/' + topic_id).then(function(result) {
             topics = result.data;
             callback(topics);
-            console.log(topics);
         })
     }
 
-    factory.create = function(topic_id, message, callback) {
+    factory.createMessage = function(topic_id, message, callback) {
         $http.post('/messages/' + topic_id, message).then(function(result) {
             messages = result.data;
             callback(messages);
@@ -31,6 +30,20 @@ app.factory('messageFactory', function($http) {
             callback(messages);
         })
 
+    }
+
+    factory.like = function(topic_id, callback) {
+        $http.post('/messages/like/' + topic_id).then(function(result) {
+            messages = result.data;
+            callback(messages);
+        })
+    }
+
+    factory.dislike = function(topic_id, callback) {
+        $http.post('/messages/dislike/' + topic_id).then(function(result) {
+            messages = result.data;
+            callback(messages);
+        })
     }
     return factory;
 })

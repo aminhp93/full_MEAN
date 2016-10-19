@@ -1,20 +1,13 @@
-app.controller('topicController', function($scope, topicFactory, $cookies, $location) {
-    function index(data) {
+app.controller('topicController', function($scope, topicFactory, $location, userFactory, $cookies) {
+    function getTopic(data) {
         $scope.topics = data;
     }
 
-    topicFactory.index(index);
+    topicFactory.getTopic(getTopic);
 
-    $scope.nameVal = $cookies.get('name');
-    $scope.addName = function(val) {
-        $cookies.put('name', val);
-        $location.url('/dashboard');
-    }
-
-    $scope.addTopic = function() {
-        $scope.topic['name'] = $scope.nameVal;
-        console.log($scope.topic);
-        topicFactory.create($scope.topic, index);
+    $scope.createTopic = function() {
+        $scope.topic['_user'] = $cookies.get('user_id');
+        topicFactory.createTopic($scope.topic, getTopic);
         $scope.topic = {};
     }
 })
