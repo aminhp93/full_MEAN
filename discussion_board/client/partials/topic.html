@@ -1,0 +1,36 @@
+<form>
+    <h4>Add a new topic</h4>
+    <li>
+        Topic:
+        <input type="text" ng-model="topic.title">
+    </li>
+    <li>
+        Description:
+        <input type="text" ng-model="topic.description">
+    </li>
+    <li>
+        Category:
+        <select ng-model="topic.category">
+            <option>HTML</option>
+            <option>MySQL</option>
+            <option>Ruby</option>
+            <option>UX</option>
+            <option>Web Development</option>
+        </select>
+    </li>
+    <input type="submit" ng-click="addTopic()">
+</form>
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Topic</th>
+        <th>Username</th>
+        <th>Post</th>
+    </tr>
+    <tr ng-repeat="i in topics">
+        <td>{{ i.category }}</td>
+        <td><a href="#/topics/{{i._id}}">{{ i.title }}</a></td>
+        <td>{{ i.name }}</td>
+        <td>{{ i._id }}</td>
+    </tr>
+</table>
